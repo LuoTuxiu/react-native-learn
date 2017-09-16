@@ -5,13 +5,32 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, ScrollView } from 'react-native';
 
 class MyReact extends Component {
   render() {
     return (
       <View>
         <Text style={styles.red}>just red</Text>
+        <ScrollView>
+          <Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text>
+
+          <Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text>
+
+          <Text style={styles.red}>just red</Text>
+          <Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text><Text style={styles.red}>just red</Text>
+        </ScrollView>
       </View>
     )
   }
@@ -20,7 +39,8 @@ class MyReact extends Component {
 
 const styles  = StyleSheet.create({
   red: {
-    color: 'red'
+    color: 'red',
+    fontSize: 66
   }
 })
 
