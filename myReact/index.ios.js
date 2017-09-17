@@ -5,6 +5,7 @@
  */
 
 // import React, { Component } from 'react';
+// import { Text } from 'react-native'
 // import { AppRegistry, StyleSheet, Text, View, ScrollView, FlatList } from 'react-native';
 //
 // class MyReact extends Component {
@@ -47,24 +48,52 @@
 // AppRegistry.registerComponent('myReact', () => MyReact)
 
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, ScrollView, FlatList, SectionList } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, ScrollView, FlatList, SectionList, Button, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-class MyReact extends Component {
+
+class MainScreen extends Component {
+  static navigationOptions = {
+    title: 'welcom'
+  }
+  customPressHandlder = () => {
+    alert('你妹')
+  };
   render() {
+    const {navigate} = this.props.navigation
     return (
       <View>
-        <SectionList
-          sections = {[
-            {title: 'D', data: ['lala']}
-          ]}
-          renderItem = { ({item}) => <Text style={styles.item}>{item}</Text>}
-          renderSectionHeader = { ({section}) => <Text>{section.title}</Text>}
-          ></SectionList>
+        <Button title='点我' onPress={() => {
+          navigate('Profile', {name: 'Jane'})
+        }} />
+        <TouchableOpacity style={styles.button} onPress={this.customPressHandlder}>
+          <Text style = {styles.buttonText}>确定</Text>
+        </TouchableOpacity>
       </View>
     )
   }
 }
 
+class ProfileScreen extends Component {
+  static navigationOptions = {
+    title: 'welcom2342'
+  }
+  render() {
+    const {navigate} = this.props.navigation
+    return (
+      <View>
+          <Button title={this.props.name} onPress={() =>
+            navigate('Profile', {name: 'Jane'})
+          }></Button>
+      </View>
+    )
+  }
+}
+
+const App = StackNavigator({
+  Main: {screen: MainScreen},
+  Profile: {screen: ProfileScreen}
+})
 
 const styles  = StyleSheet.create({
   red: {
@@ -75,7 +104,19 @@ const styles  = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     height: 44
+  },
+  button: {
+    height: 40,
+    width: 100,
+    borderRadius: 20,
+    backgroundColor: 'green',
+    justifyContent: 'center',
+    overflow: 'hidden'
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: 'white'
   }
 })
 
-AppRegistry.registerComponent('myReact', () => MyReact)
+AppRegistry.registerComponent('myReact', () => App)
